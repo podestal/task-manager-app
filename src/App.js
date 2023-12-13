@@ -1,6 +1,7 @@
 import React from "react"
 
 import CreateProjectForm from "./components/CreateProjectForm";
+import CreateTaskForm from "./components/CreateTaskForm";
 
 const App = () => {
 
@@ -9,7 +10,7 @@ const App = () => {
   return (
     <div>
       <h1>Task Manager</h1>
-      <CreateProjectForm />
+      <CreateTaskForm />
     </div>
   );
 }

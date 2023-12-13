@@ -13,9 +13,21 @@ const CreateProjectForm = () => {
         setDescription("")
     }
 
+    React.useEffect(() => {
+        const projects = localStorage.getItem("projects")
+        setProjects(JSON.parse(projects))
+    }, [])
+
+    React.useEffect(() => {
+        if (projects.length > 0) {
+            const json = JSON.stringify(projects)
+            localStorage.setItem("projects", json)
+        }
+    }, [projects])
+
+
     return (
         <div>
-            {console.log("Projects", projects)}
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text"
