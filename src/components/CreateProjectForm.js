@@ -1,29 +1,16 @@
 import React from "react"
 
-const CreateProjectForm = () => {
+const CreateProjectForm = (props) => {
 
-    const [projects, setProjects] = React.useState([])
     const [title, setTitle] = React.useState("")
     const [description, setDescription] = React.useState("")
 
     const handleSubmit = e => {
         e.preventDefault()
-        setProjects([{title, description}, ...projects])
+        props.handleAddProject({title, description})
         setTitle("")
         setDescription("")
     }
-
-    React.useEffect(() => {
-        const projects = localStorage.getItem("projects")
-        setProjects(JSON.parse(projects))
-    }, [])
-
-    React.useEffect(() => {
-        if (projects.length > 0) {
-            const json = JSON.stringify(projects)
-            localStorage.setItem("projects", json)
-        }
-    }, [projects])
 
 
     return (

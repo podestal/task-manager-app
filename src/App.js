@@ -1,7 +1,6 @@
 import React from "react"
 
-import CreateProjectForm from "./components/CreateProjectForm";
-import CreateTaskForm from "./components/CreateTaskForm";
+import Projects from "./components/Projects";
 
 const App = () => {
 
@@ -10,7 +9,7 @@ const App = () => {
   return (
     <div>
       <h1>Task Manager</h1>
-      <CreateTaskForm />
+      <Projects />
     </div>
   );
 }
