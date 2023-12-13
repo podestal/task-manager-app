@@ -1,6 +1,8 @@
 import React from "react"
-
 import Projects from "./components/Projects";
+import Project from "./components/Project";
+import CreateTaskForm from "./components/CreateTaskForm";
+import { Route, Routes, Link } from "react-router-dom";
 
 const App = () => {
 
@@ -9,7 +11,11 @@ const App = () => {
   return (
     <div>
       <h1>Task Manager</h1>
-      <Projects />
+      <Routes>
+        <Route path="/" element={<Projects />}/>
+        <Route path="/project/:id" element={<Project />}/>
+        <Route path="/tasks" element={<CreateTaskForm />} />
+      </Routes>
     </div>
   );
 }
