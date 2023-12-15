@@ -1,4 +1,5 @@
 import React from "react"
+import { idGenerator } from "../utils/utils"
 
 const NotesForm = (props) => {
 
@@ -8,9 +9,12 @@ const NotesForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault()
         props.handleAddNote({
+            id: idGenerator(),
             title,
             content
         })
+        setTitle("")
+        setContent("")
     }
 
     return (
