@@ -1,7 +1,9 @@
+import TodoApp from "../components/todos/TodoApp"
+
 const TodosPage = () => {
     return (
         <div>
-            <h1>Todos Page</h1>
+            <TodoApp />
         </div>
     )
 }
