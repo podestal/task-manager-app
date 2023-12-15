@@ -5,7 +5,6 @@ import Todos from "./Todos"
 const TodoApp = () => {
 
     const [todos, setTodos] = React.useState([])
-    console.log(todos)
 
     const handleAddTodo = todo => {
         setTodos([...todos, todo])

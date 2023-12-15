@@ -1,7 +1,9 @@
+import NotesApp from "../components/notes/NotesApp"
+
 const NotesPage = () => {
     return (
         <div>
-            <h1>Notes Page</h1>
+            <NotesApp />
         </div>
     )
 }
