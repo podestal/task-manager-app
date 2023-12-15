@@ -1,20 +1,19 @@
 import React from "react"
-import Projects from "./components/Projects";
-import Project from "./components/Project";
-import CreateTaskForm from "./components/CreateTaskForm";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, Router } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import TodosPage from "./pages/TodosPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import NotesPage from "./pages/NotesPage";
 
 const App = () => {
 
-  const [projects, setProjects] = React.useState([])
-
   return (
     <div>
-      <h1>Task Manager</h1>
       <Routes>
-        <Route path="/" element={<Projects />}/>
-        <Route path="/project/:id" element={<Project />}/>
-        <Route path="/tasks" element={<CreateTaskForm />} />
+        <Route path="/" element={<MainPage />}/>
+        <Route path="/projects" element={<ProjectsPage />}/>
+        <Route path="/todos" element={<TodosPage />}/>
+        <Route path="/notes" element={<NotesPage />}/>
       </Routes>
     </div>
   );

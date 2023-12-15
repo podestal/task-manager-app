@@ -1,10 +1,11 @@
-const Project = (props) => {
+import { useSearchParams } from "react-router-dom"
 
-    console.log(props)
+const Project = (props) => {
+    const [searchParams, setSearchParams] = useSearchParams()
+    console.log(searchParams.get("id"))
     return (
         <div>
-            
-            <p key={props.project.title}>{props.project.title} - {props.project.description}</p>
+            {/* <p key={props.project.title}>{props.project.title} - {props.project.description}</p> */}
         </div>
     )
 }
