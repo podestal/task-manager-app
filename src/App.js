@@ -1,5 +1,6 @@
 import React from "react"
 import { Route, Routes, Link, Router } from "react-router-dom";
+import Header from "./components/Header";
 import MainPage from "./pages/MainPage";
 import TodosPage from "./pages/TodosPage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -9,6 +10,7 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <Routes>
         <Route path="/" element={<MainPage />}/>
         <Route path="/projects" element={<ProjectsPage />}/>
