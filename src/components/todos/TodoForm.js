@@ -1,14 +1,14 @@
-
-
 const TodoForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
         props.handleAddTodo({
+            id : Math.floor(Math.random() * 10000000000),
             title: e.target.elements.todo.value.trim(),
             completed: false,
             createdAt: Date.now()
         })
+        e.target.elements.todo.value = ""
     }
 
     return (
