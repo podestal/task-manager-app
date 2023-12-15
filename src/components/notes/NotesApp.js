@@ -1,5 +1,6 @@
 import React from "react"
 import NotesForm from "./NotesForm"
+import Notes from "./Notes"
 
 const NotesApp = () => {
 
@@ -10,11 +11,19 @@ const NotesApp = () => {
         setNotes([...notes, note])
     }
 
+    const handleDelete = id => {
+        setNotes(notes.filter(note => note.id != id))
+    }
+
     return (
         <div>
             <h1>Notes</h1>
             <NotesForm 
                 handleAddNote={handleAddNote}
+            />
+            <Notes 
+                notes={notes}
+                handleDelete={handleDelete}
             />
         </div>
     )

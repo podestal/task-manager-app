@@ -1,10 +1,12 @@
 import React from "react"
 import TodoForm from "./TodoForm"
 import Todos from "./Todos"
+import moment from "moment"
 
 const TodoApp = () => {
 
     const [todos, setTodos] = React.useState([])
+    const date = moment().format("dddd MMMM Mo YYYY")
 
     const handleAddTodo = todo => {
         setTodos([...todos, todo])
@@ -20,7 +22,7 @@ const TodoApp = () => {
 
     return (
         <div>
-            <h1>Todos</h1>
+            <h1>{date} Todo's</h1>
             <Todos 
                 todos={todos}
                 handleCompleted = {handleCompleted}
