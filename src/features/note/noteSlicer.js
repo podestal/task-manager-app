@@ -1,13 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-    notes: [
-        {
-            id: 1234,
-            title: "note 1",
-            content: "content of note 1",
-        }
-    ]
+    notes: []
 }
 
 export const noteSlice = createSlice(
@@ -16,11 +10,13 @@ export const noteSlice = createSlice(
         initialState,
         reducers: {
             addNote: (state, action) => {
+                console.log("payload", action.payload);
                 const note ={
-                    id: nanoid,
+                    id: nanoid(),
                     title: action.payload.title,
                     content: action.payload.content
                 }
+                state.notes.push(note)
             }
         }
     }

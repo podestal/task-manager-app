@@ -1,17 +1,19 @@
 import React from "react"
-import { idGenerator } from "../utils/utils"
+import { useDispatch } from "react-redux"
+import { addNote } from "../../features/note/noteSlicer"
 
 const NotesForm = (props) => {
 
     const [title, setTitle] = React.useState("")
     const [content, setContent] = React.useState("")
+    const dispatch = useDispatch()
 
     const handleSubmit = e => {
         e.preventDefault()
-        props.handleAddNote({
+        dispatch(addNote({
             title,
             content
-        })
+        }))
         setTitle("")
         setContent("")
     }
