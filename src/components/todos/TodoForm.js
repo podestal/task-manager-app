@@ -1,5 +1,4 @@
 import React from "react"
-import { idGenerator } from "../utils/utils"
 import { useDispatch } from "react-redux"
 import { addTodo } from "../../features/todo/todoSlicer"
 
@@ -12,12 +11,6 @@ const TodoForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault()
         dispatch(addTodo(title))
-        // props.handleAddTodo({
-        //     id : idGenerator(),
-        //     title: e.target.elements.todo.value.trim(),
-        //     completed: false,
-        //     createdAt: Date.now()
-        // })
         setTitle("")
     }
 

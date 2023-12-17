@@ -1,10 +1,14 @@
 import Todo from "./Todo"
+import React from "react"
+import { useSelector } from "react-redux"
 
 const Todos = (props) => {
 
+    const todos = useSelector(state => state.todosData.todos)
+
     return (
         <div>
-            {props.todos.map(todo => 
+            {todos.map(todo => 
                 <Todo 
                     key={todo.id}
                     todo={todo}
