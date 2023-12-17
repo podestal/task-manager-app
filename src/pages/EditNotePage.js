@@ -6,7 +6,7 @@ import { editNote } from "../features/note/noteSlicer"
 const EditNotePage = () => {
 
     const id = window.location.href.split("/").pop()
-    const notes = useSelector(state => state.notes)
+    const notes = useSelector(state => state.notesData.notes)
     const note = notes.find(note => note.id === id)
     const dispatch = useDispatch()
     const [title, setTitle] = React.useState(note ? note.title : "")
