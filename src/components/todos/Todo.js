@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch } from 'react-redux'
-import { removeTodo } from "../../features/todo/todoSlicer"
+import { removeTodo, completeTodo } from "../../features/todo/todoSlicer"
 
 const Todo = (props) => {
 
@@ -10,11 +10,18 @@ const Todo = (props) => {
         dispatch(removeTodo(props.todo.id))
     }
 
+    const handleCompleted = () => {
+        dispatch(completeTodo({
+            ...props.todo,
+            completed: !props.todo.completed
+        }))
+    }
+
     return (
         <div>
             <input
                 type="checkbox"
-                onChange={e => props.handleCompleted(props.todo.id)}
+                onChange={handleCompleted}
             />
             <span>{props.todo.title}</span>
             <button

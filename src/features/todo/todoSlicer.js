@@ -20,11 +20,14 @@ export const todosSlicer = createSlice(
             },
             removeTodo: (state, action) => {
                 state.todos = state.todos.filter(todo => todo.id != action.payload)
+            },
+            completeTodo: (state, action) => {
+                state.todos = state.todos.map(todo => todo.id == action.payload.id ? {...action.payload } : todo)
             }
         }
     }
 )
 
-export const { addTodo, removeTodo } = todosSlicer.actions
+export const { addTodo, removeTodo, completeTodo } = todosSlicer.actions
 
 export default todosSlicer.reducer
