@@ -1,4 +1,14 @@
+import React from "react"
+import { useDispatch } from 'react-redux'
+import { removeTodo } from "../../features/todo/todoSlicer"
+
 const Todo = (props) => {
+
+    const dispatch = useDispatch()
+
+    const handleRemove = () => {
+        dispatch(removeTodo(props.todo.id))
+    }
 
     return (
         <div>
@@ -8,7 +18,7 @@ const Todo = (props) => {
             />
             <span>{props.todo.title}</span>
             <button
-                onClick={e => props.handleDelete(props.todo.id)}
+                onClick={handleRemove}
             >Delete</button>
         </div>
     )

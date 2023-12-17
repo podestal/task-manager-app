@@ -17,11 +17,14 @@ export const todosSlicer = createSlice(
                     completed: false
                 }
                 state.todos.push(todo)
+            },
+            removeTodo: (state, action) => {
+                state.todos = state.todos.filter(todo => todo.id != action.payload)
             }
         }
     }
 )
 
-export const { addTodo } = todosSlicer.actions
+export const { addTodo, removeTodo } = todosSlicer.actions
 
 export default todosSlicer.reducer
