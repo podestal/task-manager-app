@@ -1,7 +1,9 @@
+import ProjectApp from "../components/projects/ProjectApp"
+
 const ProjectsPage = () => {
     return (
         <div>
-            <h1>Projects Page</h1>
+            <ProjectApp />
         </div>
     )
 }

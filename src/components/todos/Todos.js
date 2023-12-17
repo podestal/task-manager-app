@@ -2,7 +2,7 @@ import Todo from "./Todo"
 import React from "react"
 import { useSelector } from "react-redux"
 
-const Todos = (props) => {
+const Todos = () => {
 
     const todos = useSelector(state => state.todosData.todos)
 
@@ -12,8 +12,6 @@ const Todos = (props) => {
                 <Todo 
                     key={todo.id}
                     todo={todo}
-                    handleCompleted={props.handleCompleted}
-                    handleDelete = {props.handleDelete}
                 />
             )}
         </div>
