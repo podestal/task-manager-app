@@ -1,16 +1,24 @@
+import React from "react"
 import { idGenerator } from "../utils/utils"
+import { useDispatch } from "react-redux"
+import { addTodo } from "../../features/todo/todoSlicer"
+
 
 const TodoForm = (props) => {
 
+    const [title, setTitle] = React.useState("")
+    const dispatch = useDispatch()
+
     const handleSubmit = e => {
         e.preventDefault()
-        props.handleAddTodo({
-            id : idGenerator(),
-            title: e.target.elements.todo.value.trim(),
-            completed: false,
-            createdAt: Date.now()
-        })
-        e.target.elements.todo.value = ""
+        dispatch(addTodo(title))
+        // props.handleAddTodo({
+        //     id : idGenerator(),
+        //     title: e.target.elements.todo.value.trim(),
+        //     completed: false,
+        //     createdAt: Date.now()
+        // })
+        setTitle("")
     }
 
     return (
@@ -20,6 +28,8 @@ const TodoForm = (props) => {
                     type="text"
                     placeholder="title"
                     name="todo"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
                 />
                 <button type="submit">Add</button>
             </form>
