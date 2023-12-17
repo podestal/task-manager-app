@@ -1,6 +1,14 @@
 import { Link, Location } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { deleteNote } from "../../features/note/noteSlicer"
 
 const Note = (props) => {
+
+    const dispatch = useDispatch()
+
+    const handleDelete = () => {
+        dispatch(deleteNote(props.note.id))
+    }
 
     return (
         <div>
@@ -8,7 +16,7 @@ const Note = (props) => {
                 <h3>{props.note.title}</h3>
             </Link>
             <p>{props.note.content}</p>
-            <button onClick={e => props.handleDelete(props.note.id)}>Delete</button>
+            <button onClick={e => handleDelete()}>Delete</button>
         </div>
     )
 }

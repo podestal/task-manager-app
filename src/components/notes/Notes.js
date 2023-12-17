@@ -1,13 +1,17 @@
 import Note from "./Note"
+import React from "react"
+import { useSelector } from "react-redux"
 
-const Notes = (props) => {
+const Notes = () => {
+
+    const notes = useSelector(state => state.notes)
+
     return (
         <div>
-            {props.notes.map(note => 
+            {notes.map(note => 
                 <Note 
                     key={note.id}
                     note={note}
-                    handleDelete={props.handleDelete}
                 />)}
         </div>
     )
