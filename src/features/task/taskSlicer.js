@@ -17,11 +17,18 @@ export const taskSlicer = createSlice(
                     status: "n"
                 }
                 state.tasks.push(task)
+            },
+            changeStatus: (state, action) => {
+
+                const id = action.payload.id
+                const status = action.payload.status
+                console.log(status);
+                state.tasks = state.tasks.map(task => task.id == id ? {...task, status: status} : task)
             }
         }
     }
 )
 
-export const { addTask } = taskSlicer.actions
+export const { addTask, changeStatus } = taskSlicer.actions
 
 export default taskSlicer.reducer

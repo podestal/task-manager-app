@@ -20,11 +20,14 @@ export const projectSlicer = createSlice(
                     tasks: []
                 }
                 state.projects.push(project)
+            },
+            populateProjects: (state, action) => {
+                state.projects = action.payload
             }
         }
     }
 ) 
 
-export const { addProject } = projectSlicer.actions
+export const { addProject, populateProjects } = projectSlicer.actions
 
 export default projectSlicer.reducer
