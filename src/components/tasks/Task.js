@@ -8,10 +8,6 @@ const Task = (props) => {
     const [status, setStatus] = React.useState(props.task.status)
     const dispatch = useDispatch()
 
-    console.log(props.task.title)
-    console.log(status)
-    console.log(props.task)
-
     const handleSubmit = e => {
         e.preventDefault()
         dispatch(changeStatus({
